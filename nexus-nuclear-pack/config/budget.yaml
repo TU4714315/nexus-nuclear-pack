@@ -1,0 +1,4 @@
+ram_mb: 256
+time_ms: 60000
+net_calls: 20
+output_kb: 1024

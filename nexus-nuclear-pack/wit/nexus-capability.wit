@@ -1,0 +1,55 @@
+package nexus:capability@0.1.0;
+
+interface types {
+  record budget {
+    ram-mb: u32,
+    time-ms: u32,
+    net-calls: u32,
+    output-kb: u32,
+  }
+
+  record target {
+    kind: string,         // "domain" | "repo" | "folder" | "logbundle"
+    value: string,        // domain name, repo url (owned), local path
+    proof: option<string> // optional ownership proof token
+  }
+
+  record context {
+    run-id: string,
+    policy-hash: string,
+    hints: list<string>,
+  }
+
+  record cost-used {
+    time-ms: u32,
+    ram-mb: u32,
+    net-calls: u32,
+    output-kb: u32,
+  }
+
+  record evidence {
+    type: string,         // "finding" | "artifact" | "metric"
+    summary: string,
+    payload-json: string,
+    sha256: string,
+    cost: cost-used,
+  }
+
+  record candidate {
+    kind: string,
+    value: string,
+    confidence: f32,
+    reason: string,
+  }
+
+  record output {
+    evidences: list<evidence>,
+    candidates: list<candidate>,
+    provider-metrics-json: string,
+  }
+}
+
+world provider {
+  import types.{budget, target, context};
+  export run: func(capability: string, t: target, b: budget, c: context) -> types.output;
+}

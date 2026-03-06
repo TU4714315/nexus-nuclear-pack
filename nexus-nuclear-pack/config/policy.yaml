@@ -1,0 +1,15 @@
+mode: defensive
+allow:
+  domains:
+    - "example.com"
+  repos:
+    - "https://github.com/yourorg/yourrepo"
+  local_paths:
+    - "C:/projects/yourproj"
+permissions:
+  net: true
+  fs_read: true
+  fs_write: true
+limits:
+  max_net_calls_per_run: 30
+  max_output_kb_per_run: 2048
