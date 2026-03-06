@@ -1,0 +1,17 @@
+mode: defensive
+allow:
+  domains: []
+  repos:
+    - "https://github.com/yourorg/yourrepo"
+  local_paths:
+    - "C:/projects/yourproj"
+    - "/home"
+    - "/workspace"
+    - "/projects"
+permissions:
+  net: false
+  fs_read: true
+  fs_write: false
+limits:
+  max_net_calls_per_run: 0
+  max_output_kb_per_run: 2048

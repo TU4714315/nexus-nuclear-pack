@@ -1,0 +1,22 @@
+capabilities:
+  inventory_repo:
+    description: "Inventory files + basic metadata (local repo only)"
+    providers:
+      - id: "builtin.repo_inventory"
+        expected:
+          time_ms: 8000
+          ram_mb: 80
+          net_calls: 0
+          output_kb: 200
+        info_gain_prior: 0.7
+
+  scan_configs:
+    description: "Scan configs locally for risky patterns (defensive)"
+    providers:
+      - id: "wasm.config_scan.v1"
+        expected:
+          time_ms: 12000
+          ram_mb: 120
+          net_calls: 0
+          output_kb: 400
+        info_gain_prior: 0.8

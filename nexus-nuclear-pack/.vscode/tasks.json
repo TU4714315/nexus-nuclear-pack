@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "NEXUS: Show Pack Ready",
+      "type": "shell",
+      "command": "echo Nexus Nuclear Pack is ready. (This pack is a spec/skeleton.)",
+      "runOptions": { "runOn": "folderOpen" },
+      "problemMatcher": []
+    }
+  ]
+}
